@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/jsur/go-web-helloworld/pkg/config"
-	"github.com/jsur/go-web-helloworld/pkg/models"
+	"github.com/jsur/go-web-bookings/pkg/config"
+	"github.com/jsur/go-web-bookings/pkg/models"
 )
 
 // a map of custom functions that are needed in a template

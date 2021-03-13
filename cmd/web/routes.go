@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/jsur/go-web-helloworld/pkg/config"
-	"github.com/jsur/go-web-helloworld/pkg/handlers"
+	"github.com/jsur/go-web-bookings/pkg/config"
+	"github.com/jsur/go-web-bookings/pkg/handlers"
 )
 
 // Routes contains app routes
