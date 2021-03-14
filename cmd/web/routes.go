@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/jsur/go-web-bookings/pkg/config"
-	"github.com/jsur/go-web-bookings/pkg/handlers"
+	"github.com/jsur/go-web-bookings/internal/config"
+	"github.com/jsur/go-web-bookings/internal/handlers"
 )
 
 // Routes contains app routes
@@ -24,7 +24,7 @@ func Routes(app *config.AppConfig) http.Handler {
 
 	mux.Get("/search-availability", handlers.Repo.Availability)
 	mux.Post("/search-availability", handlers.Repo.PostAvailability)
-	mux.Get("/search-availability-json", handlers.Repo.AvailabilityJSON)
+	mux.Post("/search-availability-json", handlers.Repo.AvailabilityJSON)
 
 	mux.Get("/contact", handlers.Repo.Contact)
 	mux.Get("/make-reservation", handlers.Repo.Reservation)

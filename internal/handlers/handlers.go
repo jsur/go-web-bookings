@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/jsur/go-web-bookings/pkg/config"
-	"github.com/jsur/go-web-bookings/pkg/models"
-	"github.com/jsur/go-web-bookings/pkg/render"
+	"github.com/jsur/go-web-bookings/internal/config"
+	"github.com/jsur/go-web-bookings/internal/models"
+	"github.com/jsur/go-web-bookings/internal/render"
 )
 
 // Repo the repository used by the handlers
@@ -95,12 +95,12 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 		Message: "Available!",
 	}
 
-	out, err := json.MarshalIndent(resp, "", "     ")
+	out, err := json.MarshalIndent(resp, "", "  ")
 	if err != nil {
 		log.Println(err)
 		return
 	}
-	log.Println(string(out))
+
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(out)
 }
