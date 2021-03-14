@@ -10,6 +10,7 @@ import (
 
 	"github.com/jsur/go-web-bookings/pkg/config"
 	"github.com/jsur/go-web-bookings/pkg/models"
+	"github.com/justinas/nosurf"
 )
 
 // a map of custom functions that are needed in a template
@@ -23,12 +24,13 @@ func NewTemplates(a *config.AppConfig) {
 }
 
 // AddDefaultData adds shared/common data to each page
-func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
+	td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
 // GetTemplate renders templates using html/template
-func GetTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
+func GetTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {
@@ -47,7 +49,7 @@ func GetTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
 
 	buf := new(bytes.Buffer)
 
-	td = AddDefaultData(td)
+	td = AddDefaultData(td, r)
 
 	// store template in buffer with templatedata
 	_ = t.Execute(buf, td)
