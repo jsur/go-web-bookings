@@ -48,3 +48,28 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 		StringMap: stringMap,
 	})
 }
+
+// Reservation renders reservation page
+func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	render.GetTemplate(w, "make-reservation.page.tmpl", &models.TemplateData{})
+}
+
+// Generals renders generals page
+func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
+	render.GetTemplate(w, "generals.page.tmpl", &models.TemplateData{})
+}
+
+// Majors renders majors page
+func (m *Repository) Majors(w http.ResponseWriter, r *http.Request) {
+	render.GetTemplate(w, "majors.page.tmpl", &models.TemplateData{})
+}
+
+// Availability renders availability page
+func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
+	render.GetTemplate(w, "search-availability.page.tmpl", &models.TemplateData{})
+}
+
+// Contact renders contact page
+func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
+	render.GetTemplate(w, "contact.page.tmpl", &models.TemplateData{})
+}
